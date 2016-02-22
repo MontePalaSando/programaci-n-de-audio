@@ -1,12 +1,14 @@
 #LUIS SANDOVAL
 #LIBARDO MONTEALEGRE
-#ANDRES PALACIO
+#ANDRES PALACIOS
 
+
+# Importar Librerias
 from Seno import Seno
 from Guardar import Archivo
-from Cuadrada import square
-from Triangulo import triangle
-from Diente import sawtooth
+from Cuadrada import cuadro
+from Triangulo import triangu
+from Diente import sierra
 
 
 
@@ -20,7 +22,7 @@ def main():
             print ("Seleccione el tipo de onda que desea generar\n")
 
 
-
+            #Datos de entrada
             Tono = input("Digite la frecuencia del tono a generar: ")
             Tiempo = input("Ingrese el tiempo de audio en segundos: ")
             Frecuenciadesampleo = input("Ingrese la frecuencia de muestreo: ")
@@ -36,33 +38,44 @@ def main():
 
             if opcion == 1:
                     print("Senosoidal")
-
+                    #Crear la instancia de la clase audio para generar los datos
                     onda = Seno(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
+                    #Generar el arreglo
                     datos = onda.generar()
-
+                    #Graficar Archivo
                     archivo = Archivo(Frecuenciadesampleo, MaxBits, Nombre)
                     archivo.archivar(datos)
+                    #Graficar
                     onda.graficar(datos)
 
             if opcion == 2:
                     print("Cuadrada")
+                    #Crear la instancia de la clase audio para generar los datos
 
-                    onda = square(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
+                    onda = cuadro(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
+                    #Generar el arreglo
                     onda.generar()
+                    #Graficar
                     onda.graficar()
 
             if opcion == 3:
                     print("Triangular")
+                    #Crear la instancia de la clase audio para generar los datos
 
-                    onda = triangle(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
+                    onda = triangu(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
+                    #Generar el arreglo
                     onda.generar()
+                    #Graficar
                     onda.graficar()
 
             if opcion == 4:
                     print("Diente Sierra")
+                    #Crear la instancia de la clase audio para generar los datos
 
-                    onda = sawtooth(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
+                    onda = sierra(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
+                    #Generar el arreglo
                     onda.generar()
+                    #Graficar
                     onda.graficar()
 
             Confirmacion = int(input("Desea generar otra onda? 1.Si 2.No"))

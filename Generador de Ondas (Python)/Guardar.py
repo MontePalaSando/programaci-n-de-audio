@@ -1,3 +1,4 @@
+# Importar Librerias
 import wave
 import struct
 

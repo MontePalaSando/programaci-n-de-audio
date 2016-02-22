@@ -1,8 +1,12 @@
 import math
 import matplotlib.pylab as plt
+# Importar Librerias
+#Codigo de la clase para generar la senal sinusoidal
 
 class Seno:
+    #Arreglo de datos que contendra los samples
         wavearray = []
+    #Constructor de la clase
 
         def __init__(self, frecuencia, sampling, bits, time):
             self.SamplingRate = sampling
@@ -23,5 +27,5 @@ class Seno:
 
 
         def graficar(self, array):
-                plt.plot(array, color="green", linewidth=1.0, linestyle="-")
+                plt.plot(array, color="red", linewidth=1.0, linestyle="-")
                 plt.show()
