@@ -8,26 +8,34 @@ class cuadro:
     #Arreglo de datos que contendra los samples
         wavearray = []
     #Constructor de la clase
+    #Desarrollado por: Andres Palacios
         def __init__(self, frecuencia, sampling, bits, time):
             self.SamplingRate = sampling
             self.NumeroBit = bits
             self.Seconds = time
             self.Frecuencia = frecuencia
             self.tamano = sampling * time
-            self.amplitud= (2**bits)/2
-            self.pi = math.pi
+
 
         def generar(self):
 
 
             for i in range(0, self.tamano):
-                datos = self.amplitud*math.sin((2*self.pi*self.Frecuencia*i)/self.SamplingRate)
-		if datos<0:
-                      datos=(-(2**self.NumeroBit)/2)
-		if datos>0:
-                      datos=((2**self.NumeroBit)/2)
-                cuadro.wavearray.append(datos)
 
-	def graficar(self):
+                A = (4/math.pi)*(2**self.NumeroBit)/100
+                datos = 0
+
+                for j in range(0,100):
+                    par = j %2
+
+                    if par:
+                        value =math.sin((j*math.pi*self.Frecuencia*i)/self.SamplingRate)
+                        datos = datos + value
+                frame = datos * A
+                cuadro.wavearray.append(frame)
+
+            return cuadro.wavearray
+
+	def graficar(self,array):
                 plt.plot(cuadro.wavearray, color="red", linewidth=1.0, linestyle="-")
                 plt.show()

@@ -7,7 +7,7 @@
 from Seno import Seno
 from Guardar import Archivo
 from Cuadrada import cuadro
-from Triangulo import triangu
+from Triangulo import triangulo
 from Diente import sierra
 
 
@@ -33,7 +33,7 @@ def main():
             print ("2. Onda Cuadrada")
             print ("3. Onda Triangular")
             print ("4. Onda Sierra\n")
-
+            #Desarrollado por: Libardo Montealegre
             opcion = input("Digite una opcion: ")
 
             if opcion == 1:
@@ -51,32 +51,38 @@ def main():
             if opcion == 2:
                     print("Cuadrada")
                     #Crear la instancia de la clase audio para generar los datos
-
                     onda = cuadro(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
                     #Generar el arreglo
-                    onda.generar()
+                    datos = onda.generar()
+                    #Graficar Archivo
+                    archivo = Archivo(Frecuenciadesampleo, MaxBits, Nombre)
+                    archivo.archivar(datos)
                     #Graficar
-                    onda.graficar()
+                    onda.graficar(datos)
 
             if opcion == 3:
                     print("Triangular")
                     #Crear la instancia de la clase audio para generar los datos
-
-                    onda = triangu(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
+                    onda = triangulo(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
                     #Generar el arreglo
-                    onda.generar()
+                    datos = onda.generar()
+                    #Graficar Archivo
+                    archivo = Archivo(Frecuenciadesampleo, MaxBits, Nombre)
+                    archivo.archivar(datos)
                     #Graficar
-                    onda.graficar()
+                    onda.graficar(datos)
 
             if opcion == 4:
                     print("Diente Sierra")
                     #Crear la instancia de la clase audio para generar los datos
-
                     onda = sierra(Tono, Frecuenciadesampleo, MaxBits, Tiempo)
                     #Generar el arreglo
-                    onda.generar()
+                    datos = onda.generar()
+                    #Graficar Archivo
+                    archivo = Archivo(Frecuenciadesampleo, MaxBits, Nombre)
+                    archivo.archivar(datos)
                     #Graficar
-                    onda.graficar()
+                    onda.graficar(datos)
 
             Confirmacion = int(input("Desea generar otra onda? 1.Si 2.No"))
 

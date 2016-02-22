@@ -7,7 +7,7 @@ class Seno:
     #Arreglo de datos que contendra los samples
         wavearray = []
     #Constructor de la clase
-
+    #Desarrollado por: Andres Palacios
         def __init__(self, frecuencia, sampling, bits, time):
             self.SamplingRate = sampling
             self.NumeroBit = bits
