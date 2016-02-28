@@ -8,13 +8,13 @@ class Audio:
         self.AudioIn= AudioIn
 
     def operar7(self):
-
+        #se abre los archivos de audio y se procesede a obtener el valor maximo del arreglo
         x= self.AudioIn
         Archivo= wave.open(x,'rb')
         y=Archivo.getnframes()
         op=1/44100
 
-
+# se procesde a hacer la sumatoria de todos los cuadrados del arreglo por medio de la variable r
         for i in range(0,3):
             u='so'
             t= struct.unpack("<h",u)
@@ -27,6 +27,8 @@ class Audio:
 
         op= 1 /44100
 
+#se procede a abrir el archivo de audio y obtiendo el valor maximo del arreglo
+# #se procede a hacer la sumatoria de todos los cuadrados mediante la variable r2
         for i in range(0,y):
             u='st'
             t=struct.unpack("<h",u)
