@@ -5,7 +5,7 @@ class Calc3:
 
             def __init__(self, NumBits):
                 self.NumBits = NumBits
-#se habilita la opcion para ingresar por consola la profundidad en bits para calcular el rango dinamico deseado
+
             def operar3(self):
 
                 resul1=(6.02*self.NumBits)
@@ -14,7 +14,7 @@ class Calc3:
 
 
 class Calc4:
-#se imprime el resultado de los diferentes rangos dinamicos para el punto 2
+
             def operar4(self):
                 print("Para 2 ")
                 resul=(6.02*2)

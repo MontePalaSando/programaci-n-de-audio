@@ -4,14 +4,18 @@ class Calc5:
 
 
             def __init__(self, dBFS1,dBFS2):
-                self.dBFS1 = dBFS1*-1
-                self.dBFS2 = dBFS2*-1
+                self.dBFS1 = dBFS1
+                self.dBFS2 = dBFS2
 
             def operar5(self):
 
-                Max= ((2**16)*(10**(float(self.dBFS2)/20)))
+                Max= ((2**16)*(10**(float(self.dBFS1)/20)))
                 Max1= ((2**16)*(10**(float(self.dBFS2)/20)))
-                MaxResul= Max + Max1
+                Operacion = input("Que operecio desea realizar 1.+ 2.- : ")
+                if Operacion == 1:
+                    MaxResul= float(Max + Max1)
+                elif Operacion == 2:
+                    MaxResul = float(Max - Max1)
                 resul=20*math.log10(float(MaxResul)/(2**16))
                 print("La amplitud pico en dBFS es: ")
                 print(resul)
@@ -30,9 +34,9 @@ class Calc6:
                 print ("\n")
 
                 print("Para 20dBFS - 10dBFS")
-                Max= ((2**16)*(10**(float(-20)/20)))
-                Max1= ((2**16)*(10**(float(-10)/20)))
-                MaxResul= Max - Max1
+                Max= ((2**16)*(10**(float(20)/20)))
+                Max1= ((2**16)*(10**(float(10)/20)))
+                MaxResul= float(Max - Max1)
                 resul2=20*math.log10(float(MaxResul)/(2**16))
                 print("La amplitud pico en dBFS es:")
                 print(resul2)
@@ -48,8 +52,8 @@ class Calc6:
                 print ("\n")
 
                 print("Para 15dBFS + 45dBFS ")
-                Max= ((2**16)*(10**(float(15)/20)))
-                Max1= ((2**16)*(10**(float(45)/20)))
+                Max= ((2**16)*(10**(float(-15)/20)))
+                Max1= ((2**16)*(10**(float(-45)/20)))
                 MaxResul= Max + Max1
                 resul4=20*math.log10(float(MaxResul)/(2**16))
                 print("La amplitud pico en dBFS es:")
@@ -57,8 +61,8 @@ class Calc6:
                 print ("\n")
 
                 print("Para 25dBFS - 8dBFS")
-                Max= ((2**16)*(10**(float(-25)/20)))
-                Max1= ((2**16)*(10**(float(-8)/20)))
+                Max= ((2**16)*(10**(float(25)/20)))
+                Max1= ((2**16)*(10**(float(8)/20)))
                 MaxResul= Max - Max1
                 resul5=20*math.log10(float(MaxResul)/(2**16))
                 print("La amplitud pico en dBFS es: ")
@@ -66,8 +70,8 @@ class Calc6:
                 print ("\n")
 
                 print("Para 90dBFS - 45dBFS")
-                Max= ((2**16)*(10**(float(-90)/20)))
-                Max1= ((2**16)*(10**(float(-45)/20)))
+                Max= ((2**16)*(10**(float(90)/20)))
+                Max1= ((2**16)*(10**(float(45)/20)))
                 MaxResul= Max + Max1
                 resul6=20*math.log10(float(MaxResul)/(2**16))
                 print("La amplitud pico en dBFS es: ")
@@ -84,8 +88,8 @@ class Calc6:
                 print ("\n")
 
                 print("Para 10dBFS - 90dBFS")
-                Max= ((2**16)*(10**(float(-10)/20)))
-                Max1= ((2**16)*(10**(float(-90)/20)))
+                Max= ((2**16)*(10**(float(10)/20)))
+                Max1= ((2**16)*(10**(float(90)/20)))
                 MaxResul= Max + Max1
                 resul8=20*math.log10(float(MaxResul)/(2**16))
                 print("La amplitud pico en dBFS es: ")

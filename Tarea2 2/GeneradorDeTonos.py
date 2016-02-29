@@ -33,7 +33,7 @@ class cuadro:
     #Arreglo de datos que contendra los samples
         wavearray = []
     #Constructor de la clase
-    #Desarrollado por: Andres Palacio
+    #Desarrollado por: Andres Palacios
         def __init__(self, frecuencia, sampling, bits, time,NivelPi):
             self.SamplingRate = sampling
             self.NumeroBit = bits
@@ -128,7 +128,7 @@ class sierra:
                 datos = 0
 
                 for j in range(1,100):
-                    par = j %2
+                    par = j
 
                     if par:
                         val = 1/float(j)

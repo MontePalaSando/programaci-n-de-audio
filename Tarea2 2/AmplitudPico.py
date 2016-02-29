@@ -6,7 +6,7 @@ class Calc1:
             def __init__(self, VP, Bits):
                 self.VP = VP
                 self.Bits = Bits
- #se implementa la opcion de ingresar el valor de amplitud pico para calcular su equivalencia en dBfs
+
             def operar(self):
 
                 resul=20*math.log10(abs((float(self.VP))/(2**self.Bits)))
@@ -15,7 +15,7 @@ class Calc1:
 
 
 class Calc2:
-#se procede a imprimir los diferentes valores del primer punto
+
             def operar2(self):
                 print("Para 2565 ")
                 resul=20*math.log10(float(2565)/(2**16))
