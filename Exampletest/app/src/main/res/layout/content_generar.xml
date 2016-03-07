@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.miguelolivares.exampletest.Generar"
+    tools:showIn="@layout/activity_generar">
+
+    <EditText
+        android:id="@+id/time_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/time_input"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/tone_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/tone_input"
+        android:inputType="number"
+        android:layout_below="@+id/time_input"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generar Tono"
+        android:id="@+id/button"
+        android:layout_below="@+id/radioButton4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Onda Sierra"
+        android:id="@+id/radioButton4"
+        android:checked="false"
+        android:layout_below="@+id/radioButton3"
+        android:layout_alignParentLeft="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Onda Triangular"
+        android:id="@+id/radioButton3"
+        android:checked="false"
+        android:layout_below="@+id/radioButton2"
+        android:layout_alignParentLeft="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Onda Senosoidal"
+        android:id="@+id/radioButton"
+        android:layout_below="@+id/tone_input"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Onda Senosoidal"
+        android:id="@+id/radioButton2"
+        android:layout_below="@+id/tone_input"
+        android:layout_alignParentStart="true"  />
+
+    </RadioGroup>
+
+
+</RelativeLayout>
