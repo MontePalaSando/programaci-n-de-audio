@@ -1,0 +1,175 @@
+#LUIS SANDOVAL
+#ANDRES PALACIO
+#LIBARDO MONTEALEGRE
+
+from tkFileDialog import askopenfilename
+import wave
+import struct
+import  pyaudio
+import threading
+from Reproduccion import Repro
+
+global Audio1, Audio2, Audio3, File1,File2,File3,File4
+Audio1= []
+Audio2= []
+Audio3= []
+
+#busca los archivos en carpeta fuente y los transquibe en arreglos
+#para cuatro arreglos que se reproducen simultaneamente
+
+
+def Abrir1():
+
+    global Audio1, File1
+
+    File1= askopenfilename()
+
+    WAV1=wave.open(File1, "rb")
+    Array=int(WAV1.getnframes())
+
+    for i in range(0, Array):
+            datos=WAV1.readframes(1)
+            packed_value = struct.unpack('<h', datos)
+            Audio1.append(packed_value)
+
+
+
+def Abrir2():
+
+    global Audio2, File2
+
+    File2= askopenfilename()
+
+    WAV2=wave.open(File2, "rb")
+    Array2=int(WAV2.getnframes())
+
+    for i in range(0, Array2):
+            datos=WAV2.readframes(1)
+            packed_value = struct.unpack('<h', datos)
+            Audio2.append(packed_value)
+
+
+def Abrir3():
+
+    global Audio3, File3
+
+    File3= askopenfilename()
+
+    WAV3=wave.open(File3, "rb")
+    Array3=int(WAV3.getnframes())
+
+    for i in range(0, Array3):
+            datos=WAV3.readframes(1)
+            packed_value = struct.unpack('<h', datos)
+            Audio3.append(packed_value)
+
+def Abrir4():
+
+    global Audio4, File4
+
+    File4= askopenfilename()
+
+    WAV4=wave.open(File4, "rb")
+    Array4=int(WAV4.getnframes())
+
+    for i in range(0, Array4):
+            datos=WAV4.readframes(1)
+            packed_value = struct.unpack('<h', datos)
+            Audio3.append(packed_value)
+
+# el def de reproducir para cada archivo de audio por individual despues de ser subidos
+#para cuatro archivos de audio diferentes
+
+def reproduce1():
+        rf = wave.open(File1, 'rb')
+        prof = rf.getsampwidth()
+        channels = rf.getnchannels()
+        rate = rf.getframerate()
+        audioN = pyaudio.PyAudio()
+        streamN = audioN.open(format=audioN.get_format_from_width(prof), channels=channels, rate=rate, output=True)
+        datos = rf.readframes(1024)
+        while datos != '':
+            streamN.write(datos)
+            datos = rf.readframes(1024)
+
+        rf.close()
+        streamN.stop_stream()
+        streamN.close()
+        audioN.terminate()
+
+def reproduce2():
+        rf = wave.open(File2, 'rb')
+        prof = rf.getsampwidth()
+        channels = rf.getnchannels()
+        rate = rf.getframerate()
+        audioN = pyaudio.PyAudio()
+        streamN = audioN.open(format=audioN.get_format_from_width(prof), channels=channels, rate=rate, output=True)
+        datos = rf.readframes(1024)
+        while datos != '':
+            streamN.write(datos)
+            datos = rf.readframes(1024)
+
+        rf.close()
+        streamN.stop_stream()
+        streamN.close()
+        audioN.terminate()
+
+def reproduce3():
+        rf = wave.open(File3, 'rb')
+        prof = rf.getsampwidth()
+        channels = rf.getnchannels()
+        rate = rf.getframerate()
+        audioN = pyaudio.PyAudio()
+        streamN = audioN.open(format=audioN.get_format_from_width(prof), channels=channels, rate=rate, output=True)
+        datos = rf.readframes(1024)
+        while datos != '':
+            streamN.write(datos)
+            datos = rf.readframes(1024)
+
+        rf.close()
+        streamN.stop_stream()
+        streamN.close()
+        audioN.terminate()
+
+def reproduce4():
+        rf = wave.open(File4, 'rb')
+        prof = rf.getsampwidth()
+        channels = rf.getnchannels()
+        rate = rf.getframerate()
+        audioN = pyaudio.PyAudio()
+        streamN = audioN.open(format=audioN.get_format_from_width(prof), channels=channels, rate=rate, output=True)
+        datos = rf.readframes(1024)
+        while datos != '':
+            streamN.write(datos)
+            datos = rf.readframes(1024)
+
+        rf.close()
+        streamN.stop_stream()
+        streamN.close()
+        audioN.terminate()
+
+def Real(nombre):
+
+        Mix=Repro(1024)
+        Datos=Mix.open(nombre)
+        Mix.start(Datos[0],Datos[1],Datos[2])
+        Mix.play(Datos[3])
+        Mix.closed()
+
+def reproduce():
+
+    # el threading permite la reproducion de los cuatro audios en simultaneo
+     #utilizando el mismo espacio de procesamiento haciendo llamado a la funcion thread
+
+        Audio1=threading.Thread(target=Real, args=(File1,))
+        Audio2=threading.Thread(target=Real, args=(File2,))
+        Audio3=threading.Thread(target=Real, args=(File3,))
+        Audio4=threading.Thread(target=Real, args=(File4,))
+        Audio1.start()
+        Audio2.start()
+        Audio3.start()
+        Audio4.start()
+
+
+
+
